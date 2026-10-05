@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <!-- Viewport: uses the real device width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diseño Web Responsivo | Tarea 3 - Felipe Carvajal Perez</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles (after Bootstrap so they can override it) -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Fondo principal (Bootstrap container) -->
+  <div class="container-lg px-0 main-wrapper">
+
+    <!-- Header -->
+    <header class="row g-0">
+      <!-- Imagen o información referencial -->
+      <div class="col-12 col-md-6 ref-block d-flex align-items-center justify-content-center p-4">
+        <!-- To use a real image, replace the div below with:
+             <img src="img/logo.png" alt="Logotipo" class="img-fluid"> -->
+        <div class="logo-placeholder d-flex flex-column align-items-center justify-content-center text-center">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <path d="M21 15l-5-5L5 21"></path>
+          </svg>
+          <span class="mt-2 fw-bold">Imagen de referencia o logotipo</span>
+        </div>
+      </div>
+      <!-- Texto o contenido relacionado -->
+      <div class="col-12 col-md-6 title-block d-flex flex-column justify-content-center">
+        <h1>Diseño Web Responsivo</h1>
+        <p>Viewport, Media Queries, Grid-View y Bootstrap 5</p>
+      </div>
+    </header>
+
+    <!-- Navegación principal (Bootstrap navbar) -->
+    <nav class="navbar navbar-expand main-nav p-0">
+      <ul class="navbar-nav flex-column flex-md-row justify-content-md-center w-100">
+        <li class="nav-item"><a class="nav-link" href="#concepto">Concepto</a></li>
+        <li class="nav-item"><a class="nav-link" href="#viewport">Viewport</a></li>
+        <li class="nav-item"><a class="nav-link" href="#media-queries">Media Queries</a></li>
+        <li class="nav-item"><a class="nav-link" href="#grid-view">Grid-View</a></li>
+        <li class="nav-item"><a class="nav-link" href="#bootstrap">Bootstrap 5</a></li>
+      </ul>
+    </nav>
+
+    <!-- Aside + Main -->
+    <div class="row g-3 content-area">
+
+      <!-- Aside -->
+      <aside class="col-12 col-md-4 col-lg-3">
+        <div class="aside-box">
+          <h2>Temas</h2>
+          <ul class="mb-0">
+            <li><a href="#concepto">Concepto</a></li>
+            <li><a href="#viewport">Viewport</a></li>
+            <li><a href="#media-queries">Media Queries</a></li>
+            <li><a href="#grid-view">Grid-View</a></li>
+            <li><a href="#bootstrap">Bootstrap 5</a></li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- Main -->
+      <main class="col-12 col-md-8 col-lg-9">
+        <div class="main-box">
+
+          <!-- Diseño web responsivo -->
+          <article class="topic" id="concepto">
+            <h2>Diseño web responsivo</h2>
+            <p>Es una forma de diseñar páginas para que una misma página se adapte a cualquier tamaño de pantalla, ya sea celular, tablet o computadora, sin tener que hacer una versión distinta para cada uno.</p>
+            <h3>Importancia</h3>
+            <p>Hoy la mayoría de las personas navega desde el celular. Si una página no es responsiva, el texto se sale de la pantalla, hay que hacer zoom para leer y los botones quedan muy pequeños para tocarlos. Además, Google le da prioridad a las páginas que se ven bien en móviles.</p>
+            <h3>Principios básicos</h3>
+            <ul>
+              <li><strong>Medidas flexibles:</strong> usar porcentajes en vez de píxeles fijos.</li>
+              <li><strong>Imágenes flexibles:</strong> que se achiquen con <code>max-width: 100%</code>.</li>
+              <li><strong>Media Queries:</strong> cambiar el acomodo del contenido según el ancho de pantalla.</li>
+              <li><strong>Mobile first:</strong> diseñar primero para celular y luego para pantallas grandes.</li>
+            </ul>
+          </article>
+
+          <!-- Viewport -->
+          <article class="topic" id="viewport">
+            <h2>Viewport</h2>
+            <p>Es el área visible de la página dentro del navegador. En una computadora es grande, pero en un celular es mucho más pequeña. Se configura con esta etiqueta dentro del <code>&lt;head&gt;</code>:</p>
+            <pre class="code-box mb-3"><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
+            <ul>
+              <li><code>width=device-width</code>: hace que el navegador use el ancho real del dispositivo en vez de simular una pantalla de escritorio.</li>
+              <li><code>initial-scale=1.0</code>: evita que la página cargue con zoom.</li>
+            </ul>
+            <p class="mb-0">Sin esta etiqueta, el celular muestra la página como si fuera de escritorio y todo se ve diminuto. Esta misma etiqueta está en el <code>&lt;head&gt;</code> de esta página.</p>
+          </article>
+
+          <!-- Media Queries -->
+          <article class="topic" id="media-queries">
+            <h2>CSS3 Media Queries</h2>
+            <p>Aplican estilos diferentes según el tamaño de la pantalla. Se escribe una condición y los estilos dentro solo se usan cuando esa condición se cumple.</p>
+            <pre class="code-box mb-3"><code>@media (max-width: 600px) {
+  .mq-demo { background: orange; }
+}</code></pre>
+            <ul>
+              <li><code>max-width</code>: se aplica cuando la pantalla mide <strong>hasta</strong> ese ancho.</li>
+              <li><code>min-width</code>: se aplica cuando la pantalla mide <strong>desde</strong> ese ancho.</li>
+              <li><code>orientation</code>: según si el dispositivo está vertical u horizontal.</li>
+            </ul>
+            <p>Ejemplo en vivo, achique la ventana del navegador a 600px o menos para ver el cambio:</p>
+            <div class="mq-demo">
+              <span class="wide-text">Pantalla ancha (más de 600px): fondo azul</span>
+              <span class="small-text">Pantalla pequeña (600px o menos): fondo naranja</span>
+            </div>
+          </article>
+
+          <!-- Grid-View -->
+          <article class="topic" id="grid-view">
+            <h2>Grid-View</h2>
+            <p>Consiste en dividir la página en columnas, normalmente 12, para acomodar el contenido. Cada bloque ocupa cierta cantidad de columnas y, con Media Queries, esa cantidad cambia según la pantalla. Por ejemplo, en esta página el menú lateral ocupa 3 columnas y el contenido 9 en computadora, pero en celular ambos ocupan las 12.</p>
+            <div class="row g-2 mb-2">
+              <div class="col-12"><div class="demo-cell">12 columnas</div></div>
+            </div>
+            <div class="row g-2 mb-2">
+              <div class="col-6"><div class="demo-cell">6</div></div>
+              <div class="col-6"><div class="demo-cell">6</div></div>
+            </div>
+            <div class="row g-2">
+              <div class="col-4"><div class="demo-cell">4</div></div>
+              <div class="col-4"><div class="demo-cell">4</div></div>
+              <div class="col-4"><div class="demo-cell">4</div></div>
+            </div>
+          </article>
+
+          <!-- Bootstrap 5 -->
+          <article class="topic" id="bootstrap">
+            <h2>Bootstrap 5</h2>
+            <p>Es un framework gratuito de CSS y JavaScript que trae clases y componentes ya hechos para crear páginas responsivas más rápido. Para usarlo solo se agregan sus archivos desde internet (CDN): el CSS en el <code>&lt;head&gt;</code> y el JavaScript antes de cerrar el <code>&lt;body&gt;</code>.</p>
+            <pre class="code-box mb-3"><code>&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;</code></pre>
+
+            <h3>Containers</h3>
+            <p><code>.container</code> centra el contenido y le da un ancho máximo que cambia según la pantalla. <code>.container-fluid</code> ocupa siempre todo el ancho. El fondo principal de esta página usa un container.</p>
+
+            <h3>Grid System</h3>
+            <p>Usa filas (<code>.row</code>) y columnas (<code>.col</code>) con 12 columnas. Las clases como <code>col-md-6</code> indican cuántas columnas ocupa algo desde cierto tamaño de pantalla. Achique la ventana para ver cómo se acomodan:</p>
+            <div class="row g-2 mb-2">
+              <div class="col-12 col-md-4"><div class="demo-cell">col-12 col-md-4</div></div>
+              <div class="col-12 col-md-4"><div class="demo-cell">col-12 col-md-4</div></div>
+              <div class="col-12 col-md-4"><div class="demo-cell">col-12 col-md-4</div></div>
+            </div>
+
+            <h3>Flex</h3>
+            <p>Clases como <code>d-flex</code>, <code>justify-content-between</code> y <code>align-items-center</code> acomodan elementos en fila o columna sin escribir CSS. Este ejemplo está en columna en celular y en fila en computadora (<code>flex-column flex-md-row</code>):</p>
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 mb-2">
+              <div class="demo-chip">Uno</div>
+              <div class="demo-chip">Dos</div>
+              <div class="demo-chip">Tres</div>
+            </div>
+
+            <h3>Carousel</h3>
+            <p>Componente que muestra contenido que va rotando, con flechas para avanzar o retroceder:</p>
+            <div id="demoCarousel" class="carousel slide demo-carousel mb-2" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="d-flex align-items-center justify-content-center" style="background: var(--teal);">Celular</div>
+                </div>
+                <div class="carousel-item">
+                  <div class="d-flex align-items-center justify-content-center" style="background: var(--navy);">Tablet</div>
+                </div>
+                <div class="carousel-item">
+                  <div class="d-flex align-items-center justify-content-center" style="background: #E76F51;">Computadora</div>
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#demoCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#demoCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+              </button>
+            </div>
+
+            <h3>Navbar</h3>
+            <p class="mb-0">Barra de navegación adaptable. La barra de arriba de esta página es una navbar de Bootstrap: en computadora los enlaces van en una fila y en celular se acomodan uno debajo del otro.</p>
+          </article>
+
+        </div>
+      </main>
+    </div>
+
+    <!-- img 1 - img 4 -->
+    <section class="gallery">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3">
+        <div class="col"><div class="img-box img-1 d-flex align-items-center justify-content-center">Imagen 1</div></div>
+        <div class="col"><div class="img-box img-2 d-flex align-items-center justify-content-center">Imagen 2</div></div>
+        <div class="col"><div class="img-box img-3 d-flex align-items-center justify-content-center">Imagen 3</div></div>
+        <div class="col"><div class="img-box img-4 d-flex align-items-center justify-content-center">Imagen 4</div></div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Pie o Footer -->
+  <footer class="site-footer">
+    <div class="container-lg">
+      <div class="row g-3">
+        <!-- Contenido Footer 1 -->
+        <div class="col-12 col-md-6">
+          <div class="footer-box">
+            <h3>Tarea 3: Diseño Responsivo</h3>
+            <p class="mb-0">Estudiante: Felipe Carvajal Perez<br>
+              Curso: ISW-512 Diseño de Aplicaciones Web<br>
+              Profesor: Mit. Sergio González Salazar</p>
+          </div>
+        </div>
+        <!-- Contenido Footer 2 -->
+        <div class="col-12 col-md-6">
+          <div class="footer-box">
+            <h3>Referencias</h3>
+            <p class="mb-0">
+              <a href="https://www.w3schools.com/css/css_rwd_intro.asp" target="_blank">W3Schools: Responsive Web Design</a><br>
+              <a href="https://getbootstrap.com/docs/5.3/getting-started/introduction/" target="_blank">Documentación de Bootstrap 5</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS (needed for the carousel) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
